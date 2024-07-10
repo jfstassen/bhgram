@@ -10,19 +10,10 @@ export default function Page({
         lng
     }
 }: RouteContext) {
-  let photos = Array.from({ length: 6 }, (_, i) => i + 1);
 
   return (
     <>
-    <h1>landing page {lng}</h1>
-
-    <section className="cards-container">
-      {photos.map((id) => (
-        <Link className="card" key={id} href={`${lng}/photos/${id}`}>
-          {id}
-        </Link>
-      ))}
-    </section>
+    <h1>Landing page</h1>
     </>
   )
 }
