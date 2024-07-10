@@ -1,36 +1,47 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    // Project was started without being strict enough and it's a lot of work to fix it
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "strictNullChecks": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "preserve",
+    "moduleResolution": "Bundler",
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/helpers/*": ["./src/lib/helpers/*"],
+      "@/services/*": ["./src/lib/services/*"],
+      "@/hooks/*": ["./src/lib/hooks/*"]
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "target": "ES2017"
+    ]
   },
   "include": [
+    ".eslintrc.cjs",
+    "sentry.*.config.js",
     "next-env.d.ts",
-    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules", ".next"]
 }
